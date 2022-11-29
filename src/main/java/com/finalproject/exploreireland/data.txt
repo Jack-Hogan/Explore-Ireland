@@ -1,0 +1,53 @@
+{
+    "name": "River Drowes Fishing",
+    "url": "http://www.fishinginireland.info/index.htm",
+    "phone": "+353(0)719851435",
+    "longitude": "-8.181053",
+    "latitude": "54.497695",
+    "addressRegion": "Donegal",
+    "addressLocality": "Ballyshannon",
+    "addressCountry": "Ireland",
+    "tags": "Fishing,Angling"
+
+},
+{
+    "name": "CycleWest Ireland",
+    "url": "http://www.cyclewest.com",
+    "phone": "+353(0)91877323	",
+    "longitude": "-9.02328636737",
+    "latitude": "53.0021149393",
+    "addressRegion": "Galway	",
+    "addressLocality": "Connemara",
+    "addressCountry": "Ireland",
+    "tags": "Activity Operator,Cycling,Tour"
+
+},
+{
+    "name": "Jaws Water Sports",
+    "url": "http://www.jawswatersports.ie/	",
+    "phone": "	+353(0)861735109",
+    "longitude": "-7.97256",
+    "latitude": "55.183466	",
+    "addressRegion": "Donegal",
+    "addressLocality": "Dunfanaghy",
+    "addressCountry": "Ireland",
+    "tags": "Kayaking,Activity Operator,Kitesurfing,Windsurfing,Sailing,Surfing"
+
+},
+{
+    "name": "Wilderness Ireland",
+    "url": "http://www.wildernessireland.com/",
+    "phone": "+353(0)91457898	",
+    "longitude": "-8.57044746311",
+    "latitude": "54.2140487571",
+    "addressRegion": "Sligo",
+    "addressLocality": "Collooney",
+    "addressCountry": "Ireland",
+    "tags": "Activity Operator,Cycling,Kayaking,Walking"
+
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css" integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css" integrity="sha512-pVCM5+SN2+qwj36KonHToF2p1oIvoU3bsqxphdOIWMYmgr4ZqD3t5DjKvvetKhXGc/ZG5REYTT6ltKfExEei/Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
