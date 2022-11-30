@@ -14,11 +14,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/location")
-public class LocationResource {
+public class LocationController {
 
     private final LocationService locationService;
 
-    public LocationResource(LocationService locationService) {
+    public LocationController(LocationService locationService) {
         this.locationService = locationService;
     }
 
