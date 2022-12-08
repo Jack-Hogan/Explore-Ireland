@@ -1,4 +1,4 @@
-package com.finalproject.exploreireland;
+package com.finalproject.exploreireland.controllers;
 
 import com.finalproject.exploreireland.model.Location;
 import com.finalproject.exploreireland.service.LocationService;
@@ -12,6 +12,7 @@ import java.util.List;
 
 //Controller Class
 
+@CrossOrigin(origins = "http://localhost:8081", maxAge = 3600, allowCredentials="true")
 @RestController
 @RequestMapping("/location")
 public class LocationController {
