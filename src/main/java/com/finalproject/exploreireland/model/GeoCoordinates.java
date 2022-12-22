@@ -1,9 +1,16 @@
 package com.finalproject.exploreireland.model;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
+@Entity
+@Table(name = "geoCoordinates")
 public class GeoCoordinates implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false)
+    private Integer geo_id;
     private float latitude;
 
     private float longitude;
@@ -15,6 +22,14 @@ public class GeoCoordinates implements Serializable {
 
     public GeoCoordinates(){
 
+    }
+
+    public Integer getGeo_id() {
+        return geo_id;
+    }
+
+    public void setGeo_id(Integer geo_id) {
+        this.geo_id = geo_id;
     }
 
     public float getLatitude() {

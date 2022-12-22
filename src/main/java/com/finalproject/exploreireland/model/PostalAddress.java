@@ -1,9 +1,16 @@
 package com.finalproject.exploreireland.model;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
+@Entity
+@Table(name = "postalAddress")
 public class PostalAddress implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false, updatable = false)
+    private Integer address_id;
     private String addressRegion;
     private String addressLocality;
     private String addressCountry;
@@ -15,6 +22,14 @@ public class PostalAddress implements Serializable {
         this.addressRegion = addressRegion;
         this.addressLocality = addressLocality;
         this.addressCountry = addressCountry;
+    }
+
+    public Integer getAddress_id() {
+        return address_id;
+    }
+
+    public void setAddress_id(Integer address_id) {
+        this.address_id = address_id;
     }
 
     public String getAddressRegion() {

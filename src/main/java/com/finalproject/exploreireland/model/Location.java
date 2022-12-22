@@ -13,16 +13,18 @@ public class Location implements Serializable {
     private String name;
     private String url;
     private String telephone;
+    @ManyToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "geo_id", nullable = false, updatable = false)
     private GeoCoordinates geo;
 
+    @ManyToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "address_id", nullable = false, updatable = false)
     private PostalAddress address;
 
-    private String longitude;
-    private String latitude;
-
-    private String addressRegion;
-    private String addressLocality;
-    private String addressCountry;
+    @Column( insertable = false, updatable = false)
+    private String geo_id;
+    @Column( insertable = false, updatable = false)
+    private String address_id;
 
     private String[] tags;
 
@@ -33,18 +35,16 @@ public class Location implements Serializable {
         this.name = name;
     }
 
-    public Location(long id, String name, String url, String phone, GeoCoordinates geo, PostalAddress address, String longitude, String latitude, String addressRegion, String addressLocality, String addressCountry, String[] tags) {
+
+    public Location(long id, String name, String url, String telephone, GeoCoordinates geo, PostalAddress address, String geo_id, String address_id, String[] tags) {
         this.id = id;
         this.name = name;
         this.url = url;
-        this.telephone = phone;
+        this.telephone = telephone;
         this.geo = geo;
         this.address = address;
-        this.longitude = longitude;
-        this.latitude = latitude;
-        this.addressRegion = addressRegion;
-        this.addressLocality = addressLocality;
-        this.addressCountry = addressCountry;
+        this.geo_id = geo_id;
+        this.address_id = address_id;
         this.tags = tags;
     }
 
@@ -52,6 +52,22 @@ public class Location implements Serializable {
         this.name = name;
         this.url = url;
 
+    }
+
+    public String getGeo_id() {
+        return geo_id;
+    }
+
+    public void setGeo_id(String geo_id) {
+        this.geo_id = geo_id;
+    }
+
+    public String getAddress_id() {
+        return address_id;
+    }
+
+    public void setAddress_id(String address_id) {
+        this.address_id = address_id;
     }
 
     public PostalAddress getAddress() {
@@ -102,46 +118,6 @@ public class Location implements Serializable {
         this.telephone = phone;
     }
 
-    public String getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
-    }
-
-    public String getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(String latitude) {
-        this.latitude = latitude;
-    }
-
-    public String getAddressRegion() {
-        return addressRegion;
-    }
-
-    public void setAddressRegion(String addressRegion) {
-        this.addressRegion = addressRegion;
-    }
-
-    public String getAddressLocality() {
-        return addressLocality;
-    }
-
-    public void setAddressLocality(String addressLocality) {
-        this.addressLocality = addressLocality;
-    }
-
-    public String getAddressCountry() {
-        return addressCountry;
-    }
-
-    public void setAddressCountry(String addressCountry) {
-        this.addressCountry = addressCountry;
-    }
-
     public String[] getTags() {
         return tags;
     }
@@ -157,11 +133,6 @@ public class Location implements Serializable {
                 ", name='" + name + '\'' +
                 ", url='" + url + '\'' +
                 ", phone='" + telephone + '\'' +
-                ", longitude='" + longitude + '\'' +
-                ", latitude='" + latitude + '\'' +
-                ", addressRegion='" + addressRegion + '\'' +
-                ", addressLocality='" + addressLocality + '\'' +
-                ", addressCountry='" + addressCountry + '\'' +
                 ", tags='" + tags + '\'' +
                 '}';
     }

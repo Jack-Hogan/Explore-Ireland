@@ -1,7 +1,6 @@
 package com.finalproject.exploreireland.controllers;
 
 import com.finalproject.exploreireland.model.ERole;
-import com.finalproject.exploreireland.model.Location;
 import com.finalproject.exploreireland.model.Role;
 import com.finalproject.exploreireland.model.User;
 import com.finalproject.exploreireland.payload.request.LoginRequest;
@@ -12,10 +11,8 @@ import com.finalproject.exploreireland.repo.RoleRepository;
 import com.finalproject.exploreireland.repo.UserRepository;
 import com.finalproject.exploreireland.security.jwt.JwtUtils;
 import com.finalproject.exploreireland.security.services.UserDetailsImpl;
-import com.finalproject.exploreireland.service.LocationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -52,25 +49,6 @@ public class AuthController {
 
     @Autowired
     JwtUtils jwtUtils;
-
-    private final LocationService locationService;
-
-    public AuthController(LocationService locationService) {
-        this.locationService = locationService;
-    }
-
-
-    @GetMapping("/all")
-    public ResponseEntity<List<Location>> getAllLocations(){
-        List<Location> locations = locationService.findAllLocations();
-        return new ResponseEntity<>(locations, HttpStatus.OK);
-    }
-
-    @PostMapping("/add")
-    public ResponseEntity<Location> addLocation(@Valid @RequestBody Location location){
-        Location newLocation = locationService.addLocation(location);
-        return new ResponseEntity<>(newLocation, HttpStatus.CREATED);
-    }
 
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
