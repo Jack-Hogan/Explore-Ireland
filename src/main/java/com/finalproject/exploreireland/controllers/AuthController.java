@@ -29,8 +29,9 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 
-
-//@CrossOrigin(origins = "*", maxAge = 3600)
+/**
+ * Authorization REST controller that secures end points for secure confidential information transfer
+ */
 @CrossOrigin(origins = "http://localhost:8081", maxAge = 3600, allowCredentials="true")
 @RestController
 @RequestMapping("/api/auth")
@@ -50,6 +51,11 @@ public class AuthController {
     @Autowired
     JwtUtils jwtUtils;
 
+    /**
+     * POST method that takes login request and authenticates to make sure the user detals match
+     * @param loginRequest
+     * @return Response to tell user HTTP request was successful or not
+     */
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 
@@ -74,7 +80,9 @@ public class AuthController {
     }
 
     /**
-     *
+     *POST method allow users sign up to the application.
+     * Request includes username, email and encoded password.
+     * Validation takes place here to make sure username is not taken and email does not already exist in database.
      * @param signUpRequest
      * @return
      */
@@ -129,6 +137,10 @@ public class AuthController {
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
     }
 
+    /**
+     * POST method to clear the session and clean JWT cookies.
+     * @return Response with message
+     */
     @PostMapping("/signout")
     public ResponseEntity<?> logoutUser() {
         ResponseCookie cookie = jwtUtils.getCleanJwtCookie();
