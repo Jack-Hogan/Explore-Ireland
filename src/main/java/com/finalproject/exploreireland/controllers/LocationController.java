@@ -26,7 +26,7 @@ public class LocationController {
     }
 
     /**
-     * GET method to return all locations saved by the user
+     * GET method to return all locations saved by the user.
      * @return list of all locations
      */
     @GetMapping("/all")
@@ -76,7 +76,7 @@ public class LocationController {
      */
     @Transactional
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteLocation(@PathVariable("id") Long id){
+    public ResponseEntity<HttpStatus> deleteLocation(@PathVariable("id") Long id){
         locationService.deleteLocation(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
